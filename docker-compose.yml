@@ -1,0 +1,37 @@
+version: '3'
+services:
+  google-search-tests:
+    build:
+      context: .
+      args:
+        TEST_CATEGORY: "GoogleSearchAutomation.Tests.GoogleSearchSteps"
+    shm_size: '2gb'
+    environment:
+      - CHROME_BIN=/usr/bin/google-chrome
+      - CHROME_DRIVER=/usr/local/bin/chromedriver
+    volumes:
+      - .:/app
+
+  login-tests:
+    build:
+      context: .
+      args:
+        TEST_CATEGORY: "GoogleSearchAutomation.Tests.LoginSteps"
+    shm_size: '2gb'
+    environment:
+      - CHROME_BIN=/usr/bin/google-chrome
+      - CHROME_DRIVER=/usr/local/bin/chromedriver
+    volumes:
+      - .:/app
+
+  checkout-tests:
+    build:
+      context: .
+      args:
+        TEST_CATEGORY: "GoogleSearchAutomation.Tests.CheckoutSteps"
+    shm_size: '2gb'
+    environment:
+      - CHROME_BIN=/usr/bin/google-chrome
+      - CHROME_DRIVER=/usr/local/bin/chromedriver
+    volumes:
+      - .:/app
